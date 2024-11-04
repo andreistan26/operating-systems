@@ -175,6 +175,10 @@ def run_once_and_check_output(
     except FileNotFoundError:
         pass
 
+    if not os.path.exists(binary):
+        print("No program to run, maybe compilation failed?")
+        return False
+
     with subprocess.Popen(
         [binary, in_file_path, out_file_path, f"{threads}"],
         stdout=subprocess.PIPE,

@@ -6,10 +6,10 @@ UTILS_PATH = $(realpath ../utils)
 all: src
 
 src:
-	make -C $(SRC_PATH) UTILS_PATH=$(UTILS_PATH)
+	$(MAKE) -C $(SRC_PATH) UTILS_PATH=$(UTILS_PATH)
 
 check: clean
-	make -i SRC_PATH=$(SRC_PATH)
+	-$(MAKE) SRC_PATH=$(SRC_PATH)
 	SRC_PATH=$(SRC_PATH) python3 checker.py
 
 lint:
@@ -20,7 +20,7 @@ lint:
 	# -cd $(SRC_PATH)/.. && pylint tests/*.py
 
 clean:
-	make -C $(SRC_PATH) clean
+	$(MAKE) -C $(SRC_PATH) clean
 	-rm -f *~
 	-rm -rf __pycache__
 	-rm -rf out
