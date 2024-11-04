@@ -3,6 +3,11 @@
 #ifndef __SO_PACKET_H__
 #define __SO_PACKET_H__
 
+/* For pleasing the checkpatch. */
+#ifndef __packed
+#define __packed __attribute((__packed__))
+#endif /* __packed */
+
 #define PKT_SZ 256
 
 typedef enum {
